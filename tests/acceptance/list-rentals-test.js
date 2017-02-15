@@ -13,7 +13,7 @@ test('should redirect to rentals route', function (assert) {
 test('should list available rentals.', function (assert) {
   visit('/');
   andThen(function() {
-    assert.equal(find('.listing').length, 3, 'should see 3 listings')
+    assert.equal(find('.listing').length, 3, 'should see 3 listings');
   });
 });
 
@@ -29,7 +29,7 @@ test('should link to contact information.', function (assert) {
   visit('/');
   click('a:contains("Contact")');
   andThen(function() {
-    assert.equal(currentURL(), '/Contact', 'should navigate to contact')
+    assert.equal(currentURL(), '/contact', 'should navigate to contact');
   });
 });
 
@@ -50,5 +50,5 @@ test('should show details for a specific rental', function (assert) {
     assert.equal(currentURL(), '/rentals/grand-old-mansion', 'should navigate to show route');
     assert.equal(find('.show-listing h2').text(), "Grand Old Mansion", 'should list rental title');
     assert.equal(find('.description').length, 1, 'should list a description of the property');
-  })
+  });
 });
