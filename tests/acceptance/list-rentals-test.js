@@ -1,4 +1,5 @@
 import { test } from 'qunit';
+import moduleForAcceptance from 'super-rentals/tests/helpers/module-for-acceptance';
 import Ember from 'ember';
 
 let StubMapsService = Ember.Service.extend({
@@ -55,8 +56,8 @@ test('should filter the list of rentals by city.', function (assert) {
 });
 
 test('should show details for a specific rental', function (assert) {
-  visit('rentals');
-  click('a:contains("grand Old Mansion")');
+  visit('/rentals');
+  click('a:contains("Grand Old Mansion")');
   andThen(function() {
     assert.equal(currentURL(), '/rentals/grand-old-mansion', 'should navigate to show route');
     assert.equal(find('.show-listing h2').text(), "Grand Old Mansion", 'should list rental title');

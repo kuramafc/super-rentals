@@ -1,5 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import Ember from 'ember';
 
 moduleForComponent('rental-listing', 'Integration | Component | rental listing', {
   integration: true
@@ -7,15 +8,14 @@ moduleForComponent('rental-listing', 'Integration | Component | rental listing',
 
 test('should toggle wide class on click', function(assert) {
   assert.expect(3);
-  let stubRental = Object.create({
-    image: 'fake,png',
+  let stubRental = Ember.Object.create({
+    image: 'fake.png',
     title: 'test-title',
     owner: 'test-owner',
     type: 'test-type',
     city: 'test-city',
     bedrooms: 3
   });
-  
   this.set('rentalObj', stubRental);
   this.render(hbs`{{rental-listing rental=rentalObj}}`);
   assert.equal(this.$('.image.wide').length, 0, 'initially rendered small');
